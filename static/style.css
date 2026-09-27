@@ -1,0 +1,597 @@
+/* Futuristic neon blue background */
+/* === Global Styles === */
+body {
+  background: radial-gradient(circle at center,
+    #1F51FF 0%,       /* neon core */
+    #0A0A0A 70%       /* fade to dark edges */
+  );
+  background-attachment: fixed;
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Star particles */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: radial-gradient(circle, rgba(5, 84, 212, 0.8) 2px, transparent 2px);
+  background-size: 75px 75px;
+  animation: twinkle 6s infinite alternate, moveStars 60s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+
+/* Twinkle animation (fade in/out) */
+@keyframes twinkle {
+  0%   { opacity: 0.3; }
+  50%  { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+/* Movement animation (drifting background) */
+@keyframes moveStars {
+  from { background-position: 0 0; }
+  to   { background-position: 1000px 1000px; }
+}
+
+
+/* === Header === */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 50px;
+  background-color: #111;
+  box-shadow: 0 0 25px #1F51FF;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 2em;       /* bigger font for title */
+  font-weight: bold;
+  color: #1F51FF;
+}
+.shield-icon {
+  width: 28px;          /* smaller shield size */
+  height: 28px;
+  filter: drop-shadow(0 0 8px #1F51FF);
+  animation: glowPulse 3s infinite;
+}
+
+@keyframes glowPulse {
+  0% { filter: drop-shadow(0 0 5px #1F51FF); }
+  50% { filter: drop-shadow(0 0 20px #00CFFF); }
+  100% { filter: drop-shadow(0 0 5px #1F51FF); }
+}
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  color: #FFFFFF;
+  margin: 0 15px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #1F51FF;
+  text-shadow: 0 0 10px #1F51FF;
+}
+
+#signup-toggle {
+  background-color: transparent;
+  border: 1px solid #1F51FF;
+  color: #d8dbe7;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+/* === Hero Section === */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 40px;
+}
+
+.hero-text {
+  max-width: 50%;
+}
+
+.hero-text h2 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.hero-text input, .hero-text button {
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: none;
+}
+
+/* === Neon Gradient Animation === */
+@keyframes neon-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Buttons */
+button, #scan-btn, .contact-form button {
+  background: linear-gradient(270deg, #1F51FF, #00CFFF, #1F51FF);
+  background-size: 600% 600%;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  cursor: pointer;
+  box-shadow: 0 0 20px #1F51FF;
+  animation: neon-gradient 6s ease infinite;
+  transition: transform 0.3s;
+}
+
+button:hover, #scan-btn:hover, .contact-form button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px #00CFFF;
+}
+
+/* === Risk Meter === */
+
+
+/* === Doodle === */
+.doodle {
+  max-width: 40%;
+  text-align: center;
+}
+.doodle img {
+  width: 425px;   /* larger doodle size */
+ 
+  transition: transform 0.3s;
+}
+.doodle img:hover {
+  transform: scale(1.05);
+  animation: wiggle 0.5s ease-in-out;
+}
+
+
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(3deg); }
+  50% { transform: rotate(-3deg); }
+  75% { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* === Blog Section === */
+.blog {
+  padding: 40px;
+}
+
+.blog-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.blog-card {
+  flex: 1;
+  background-color: #111;
+  border: 1px solid #1F51FF;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 15px #1F51FF80;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.blog-card::before {
+  content: "";
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  background: linear-gradient(270deg, #1F51FF, #00CFFF, #1F51FF);
+  background-size: 400% 400%;
+  z-index: -1;
+  filter: blur(25px);
+  animation: neon-gradient 8s ease infinite;
+}
+
+.blog-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px #00CFFF;
+}
+read-more {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: 1px solid #fff;
+  color: #fff;
+  background: transparent;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.read-more:hover {
+  background: #fff;
+  color: #111;
+}
+
+/* === Contact Section === */
+.contact {
+  padding: 40px;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.contact-info {
+  flex: 1;
+  background: #111;
+  border: 1px solid #1F51FF;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 20px #1F51FF80;
+  font-size: 1.1em;
+  transition: 0.3s;
+}
+.contact-info:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 30px #00CFFF;
+}
+
+
+.contact-form {
+  flex: 1;
+}
+
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #1F51FF;
+  background: #111;
+  color: #fff;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #aaa;
+}
+
+.contact-form button {
+  margin-top: 10px;
+}
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #111;
+  box-shadow: 0 -5px 15px #1F51FF;
+}
+
+/* === Page Transitions === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+body, header, section, footer {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+/* === About Page === */
+.about {
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.about h2 {
+  color: #1F51FF;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  font-size: 2.2em;
+  text-shadow: 0 0 12px #1F51FF;
+}
+
+.about p {
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+  line-height: 1.6;
+  font-size: 1.1em;
+}
+
+/* Steps row (How It Works) */
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.step {
+  flex: 1;
+  min-width: 180px;
+  background-color: #111;
+  border: 1px solid #1F51FF;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 20px #1F51FF80;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1.1em;
+  position: relative;
+  overflow: hidden;
+}
+.step:hover {
+  transform:   scale(1.05);
+  box-shadow: 0 0 30px #00CFFF;
+}
+
+/* Team section */
+.team {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.member {
+  flex: 1;
+  min-width: 220px;
+  background-color: #111;
+  border: 1px solid #1F51FF;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 20px #1F51FF80;
+  transition: 0.3s;
+  font-size: 1.1em;
+}
+
+.member:hover {
+   transform:  scale(1.05); 
+  box-shadow: 0 0 30px #00CFFF;
+}
+
+/* Fade-in effect for About sections */
+ .step, .member {
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.about h2 { animation-delay: 0.2s; }
+.about p { animation-delay: 0.4s; }
+.step { animation-delay: 0.6s; }
+.member { animation-delay: 0.8s; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.info-box {
+  background-color: #0A0A0A; /* dark background */
+  border: 2px solid #1F51FF; /* neon blue border */
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 0 15px #00CFFF; /* initial glow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-box:hover {
+  transform: translateY(-5px) scale(1.02); /* lift and enlarge slightly */
+  box-shadow: 0 0 25px #00CFFF, 0 0 50px #1F51FF; /* stronger neon glow */
+  border-color: #00CFFF; /* brighter border */
+}
+
+/* Neon text effect */
+.info-box h2,
+.info-box p
+ {
+  color: #00CFFF;
+  text-shadow: 0 0 5px #00CFFF, 0 0 10px #1F51FF;
+}
+/* Neon gradient animation */
+@keyframes neon-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Apply neon glow to steps */
+
+
+.step::before {
+  content: " ";
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  background: linear-gradient(270deg, #1F51FF, #00CFFF, #1F51FF);
+  background-size: 400% 400%;
+  z-index: -1;
+  filter: blur(25px);
+  border-radius: 8px;
+  animation: neon-gradient 8s ease infinite;
+}
+
+.member::before {
+  content: " ";
+  position: absolute;
+ 
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  background: linear-gradient(270deg, #1F51FF, #00CFFF, #1F51FF);
+  background-size: 400% 400%;
+  z-index: -1;
+  filter: blur(25px);
+  border-radius: 8px;
+  animation: neon-gradient 8s ease infinite;
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+/* Sign Up Modal */
+.signup-modal {
+  display: none; /* hidden by default */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-content {
+  background: #111;
+  border: 2px solid #1F51FF;
+  border-radius: 12px;
+  padding: 30px;
+  width: 350px;
+  box-shadow: 0 0 25px #00CFFF;
+  animation: fadeIn 0.5s ease;
+}
+
+.signup-content h2 {
+  color: #00CFFF;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.signup-content input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #1F51FF;
+  background: #0A0A0A;
+  color: #fff;
+}
+
+.signup-content button {
+  width: 100%;
+  margin-top: 15px;
+  background: linear-gradient(270deg, #1F51FF, #00CFFF, #1F51FF);
+  background-size: 600% 600%;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 20px #1F51FF;
+  animation: neon-gradient 6s ease infinite;
+}
+
+.signup-content button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px #00CFFF;
+}
+
+.close-btn {
+  float: right;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #00CFFF;
+}
+
+/* === Risk Meter === */
+.risk-meter {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #111;
+  box-shadow: 0 0 25px #1F51FF;
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Neon animated border */
+.risk-meter::before {
+  content: "";
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  border-radius: 12px;
+  background: linear-gradient(270deg, #1F51FF, #00CFFF, #1F51FF);
+  background-size: 400% 400%;
+  animation: neon-gradient 6s ease infinite;
+  z-index: -1;
+  filter: blur(20px);
+}
+
+/* Meter bar */
+.meter {
+  width: 300px;
+  height: 20px;
+  background-color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px auto;
+}
+
+#meter-fill {
+  height: 100%;
+  width: 0%; /* start empty */
+  background-color: rgb(21, 232, 56);
+  transition: width 0.5s ease, background-color 0.5s ease;
+  animation: pulse 2s infinite;
+  box-shadow: 0 0 20px crimson;
+}
+
+/* Score + verdict text */
+.risk-meter p {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 10px #1F51FF;
+}
+
+#risk-level {
+  color: #FF4444;
+  text-shadow: 0 0 10px #FF4444;
+}
+
+/* Pulse animation for fill */
+@keyframes pulse {
+  0% { transform: scaleX(1); }
+  50% { transform: scaleX(1.05); }
+  100% { transform: scaleX(1); }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScamShield AI - Protecting India, one man at a time</title>
+  <!-- CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<body>
+  <!-- Header -->
+  <header>
+    <h1 class="logo">
+      <!-- Custom SVG Shield -->
+      <svg class="shield-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+        <path d="M32 2l26 10v18c0 16-11 30-26 32-15-2-26-16-26-32V12z"
+              fill="none" stroke="#00CFFF" stroke-width="3" />
+        <path d="M32 2l26 10v18c0 16-11 30-26 32-15-2-26-16-26-32V12z"
+              fill="url(#shieldGradient)" />
+        <defs>
+          <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1F51FF" />
+            <stop offset="100%" stop-color="#00CFFF" />
+          </linearGradient>
+        </defs>
+      </svg>
+      ScamShield AI
+    </h1>
+   <nav>
+    <a href="{{ url_for('index') }}">Home</a>
+    <a href="{{ url_for('about') }}">About</a>
+    <a href="{{ url_for('blog') }}">Blog</a>
+    <a href="{{ url_for('contact') }}">Contact</a>
+    <button id="signup-toggle">Sign Up</button>
+</nav>
+  </header>
+  <!-- Sign Up Modal -->
+<div id="signup-modal" class="signup-modal">
+  <div class="signup-content">
+    <span id="close-signup" class="close-btn">&times;</span>
+    <h2>Create Your Account</h2>
+    <form>
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+</div>
+
+<section class="about">
+  <div class="info-box">
+    <h2>Our Mission</h2>
+    </div>
+    <p>ScamShield AI is dedicated to protecting users from online scams and phishing threats using advanced artificial intelligence. Our system analyzes URLs and provides instant risk assessments to keep you safe.</p>
+  
+
+  <div class="info-box">
+    <h2>How It Works</h2>
+    </div>
+    <div class="steps">
+      <div class="step">🔗 Enter URL – Type or paste any suspicious link into our scanner.</div>
+      <div class="step">🤖 AI Analysis – Our algorithms inspect patterns, domains, and hidden traps.</div>
+      <div class="step">📊 Risk Score – Get a clear score from Safe to Dangerous.</div>
+      <div class="step">✅ Verdict – Instantly know if the site is trustworthy or a scam.</div>
+    </div>
+    <p>Features include real‑time detection, scam alerts, and a growing knowledge base of fraudulent sites.</p>
+  
+
+  <div class="info-box">
+    <h2>Our Vision</h2>
+    </div>
+    <p>Empowering every Indian to browse safely and confidently in the digital world.</p>
+  
+
+  <div class="info-box">
+    <h2>Meet the Team</h2>
+    </div>
+    <div class="team">
+      <div class="member">👩‍💻 Arpit Sharma– Founder & Developer</div>
+    </div>
+  
+</section>
+<footer>
+    <p>© 2026 ScamShield AI. Protecting India, one message at a time.</p>
+  </footer>
+</body>
+</html>
