@@ -1,4 +1,4 @@
-# 🔐 Phishing URL Detection System
+# 🔐 ScamShield AI - Phishing URL Detection System
 
 A Machine Learning-based web application that analyzes URLs and predicts whether they are **Safe, Suspicious, or Dangerous**.
 
